@@ -30,7 +30,7 @@ export default function (props) {
         const email = e.target.email.value;
         const password = e.target.password.value;
         const cpassword = e.target.cpassword.value;
-        axios.post("https://rush-hour-minor-project-production.up.railway.app/auth/register", {
+        axios.post("https://rushhourbackend.onrender.com/api/auth/register", {
             firstname,
             lastname,
             email,
@@ -51,7 +51,7 @@ export default function (props) {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        axios.post("https://rush-hour-minor-project-production.up.railway.app/auth/login", {
+        axios.post("https://rushhourbackend.onrender.com/api/auth/login", {
             email,
             password,
         })
