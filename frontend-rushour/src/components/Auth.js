@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom"
 import axios from "axios";
 export default function (props) {
     const navigate = useNavigate()
-    useEffect(()=> {
-           if(localStorage.getItem("token")) {
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
             navigate('/')
-            }
+        }
 
-    },[])
+    }, [])
     // const [firstname, setFname] = useState("");
     // const [lastname, setLname] = useState("");
     // const [email, setEmail] = useState("");
@@ -25,44 +25,44 @@ export default function (props) {
 
     let handleSignup = async (e) => {
         e.preventDefault();
-        const firstname=e.target.firstname.value;
-        const lastname=e.target.lastname.value;
-        const email=e.target.email.value;
-        const password=e.target.password.value;
-        const cpassword=e.target.cpassword.value;
-        axios.post("http://localhost:8800/api/auth/register",{
+        const firstname = e.target.firstname.value;
+        const lastname = e.target.lastname.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const cpassword = e.target.cpassword.value;
+        axios.post("https://rush-hour-minor-project-production.up.railway.app/auth/register", {
             firstname,
             lastname,
             email,
             password,
             cpassword,
         })
-        .then(res => {
-            console.log(res);
-            localStorage.setItem('token',res.data.token)
-            navigate('/');
-        })
-        .catch(err =>{
-            console.log(err);
-        })
-        
+            .then(res => {
+                console.log(res);
+                localStorage.setItem('token', res.data.token)
+                navigate('/');
+            })
+            .catch(err => {
+                console.log(err);
+            })
+
     };
     let handleSignin = async (e) => {
         e.preventDefault();
-        const email=e.target.email.value;
-        const password=e.target.password.value;
-        axios.post("http://localhost:8800/api/auth/login",{
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        axios.post("https://rush-hour-minor-project-production.up.railway.app/auth/login", {
             email,
             password,
         })
-        .then(res => {
-            console.log(res);
-            localStorage.setItem('token',res.data.token)
-            navigate('/');
-        })
-        .catch(err =>{
-            console.log(err);
-        })
+            .then(res => {
+                console.log(res);
+                localStorage.setItem('token', res.data.token)
+                navigate('/');
+            })
+            .catch(err => {
+                console.log(err);
+            })
     };
     if (authMode === "signin") {
         return (
@@ -125,7 +125,7 @@ export default function (props) {
                             name="firstname"
                             className="form-control mt-1"
                             placeholder=" Saubhagya"
-                            // onChange={(e) => setFname(e.target.value)}
+                        // onChange={(e) => setFname(e.target.value)}
 
                         />
                     </div>
@@ -137,7 +137,7 @@ export default function (props) {
                             className="form-control mt-1"
                             placeholder=" Kumar"
                             name="lastname"
-                            // onChange={(e) => setLname(e.target.value)}
+                        // onChange={(e) => setLname(e.target.value)}
                         />
                     </div>
                     <div className="form-group mt-3">
@@ -148,7 +148,7 @@ export default function (props) {
                             className="form-control mt-1"
                             name="email"
                             placeholder="saubhagya@gmail.com"
-                            // onChange={(e) => setEmail(e.target.value)}
+                        // onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div className="form-group mt-3">
@@ -159,7 +159,7 @@ export default function (props) {
                             className="form-control mt-1"
                             placeholder="pass1234"
                             name="password"
-                            // onChange={(e) => setPass(e.target.value)}
+                        // onChange={(e) => setPass(e.target.value)}
                         />
                     </div>
                     <div className="form-group mt-3">
@@ -170,7 +170,7 @@ export default function (props) {
                             className="form-control mt-1"
                             placeholder="pass1234"
                             name="cpassword"
-                            // onChange={(e) => setCpass(e.target.value)}
+                        // onChange={(e) => setCpass(e.target.value)}
                         />
                     </div>
                     <div className="d-grid gap-2 mt-5">
